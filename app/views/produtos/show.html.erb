@@ -1,0 +1,6 @@
+<h1><%= @produto.nome %></h1>
+
+
+<%= link_to "Editar", edit_produto_path(@produto) %>
+<%= button_to "Excluir", produto_path(@produto), method: :delete, data: { turbo_confirm: "Tem certeza?" } %>
+<%= link_to "Voltar", produtos_path %>
