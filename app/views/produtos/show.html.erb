@@ -1,6 +1,13 @@
-<h1><%= @produto.nome %></h1>
+<% cache @produto do %>
+    <h1><%= @produto.nome %></h1>
+    <p><%= @produto.descricao %></p>
+<% end %>
 
+<%= image_tag @produto.enviar_imagem if @produto.enviar_imagem.attached?%>
 
-<%= link_to "Editar", edit_produto_path(@produto) %>
-<%= button_to "Excluir", produto_path(@produto), method: :delete, data: { turbo_confirm: "Tem certeza?" } %>
+<% if authenticated? %>
+    <%= link_to "Editar", edit_produto_path(@produto) %>
+    <%= button_to "Excluir", produto_path(@produto), method: :delete, data: { turbo_confirm: "Tem certeza?" } %>
+<% end %>
+
 <%= link_to "Voltar", produtos_path %>

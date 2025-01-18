@@ -5,6 +5,14 @@
     <%= form.text_field :nome %>
 </div>
 <div>
+  <%= form.label :descricao, style: "display: block" %>
+  <%= form.rich_text_area :descricao %>
+</div>
+<div>
+  <%= form.label :enviar_imagem, style: "display: block" %>
+  <%= form.file_field :enviar_imagem, accept: "image/*" %>
+</div>
+<div>
     <%= form.submit%>
 </div>
 

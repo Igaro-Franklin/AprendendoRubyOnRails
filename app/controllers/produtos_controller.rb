@@ -1,5 +1,6 @@
 class ProdutosController < ApplicationController
   before_action :set_produto, only: %i[show edit update destroy]
+  allow_unauthenticated_access only: %i[index show]
   
 
   def index
@@ -41,7 +42,7 @@ class ProdutosController < ApplicationController
   private
 
     def produto_params
-      params.expect(produto: [ :nome ])
+      params.expect(produto: [ :nome, :descricao, :enviar_imagem ])
     end
 
     def set_produto
